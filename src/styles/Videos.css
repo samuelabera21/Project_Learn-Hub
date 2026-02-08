@@ -1,0 +1,22 @@
+.videos-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.videos-page h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.videos-page p {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+/* GRID */
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}

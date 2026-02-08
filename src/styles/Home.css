@@ -1,0 +1,242 @@
+/* ==============================
+   GLOBAL / RESET
+   ============================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.6;
+  color: #222;
+}
+
+/* ==============================
+   HERO SECTION
+   ============================== */
+
+.home .hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  background-image: url("/path/to/your-hero-image.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.home .hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.home .hero-content {
+  position: relative;
+  text-align: center;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.home .hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+}
+
+.home .hero p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.home .hero-socials a {
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #222;
+}
+
+/* ==============================
+   EVENTS / FEATURED
+   ============================== */
+
+.home .events {
+  padding: 50px 20px;
+  background: #fafafa;
+  text-align: center;
+}
+
+.home .events h2 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: #111;
+}
+
+.home .event-list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.home .event-card {
+  background: white;
+  border-radius: 10px;
+  width: 300px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.07);
+  transition: 0.3s ease;
+}
+
+.home .event-card:hover {
+  transform: translateY(-5px);
+}
+
+.home .event-card h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.home .event-card p {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  color: #555;
+}
+
+.home .event-card span {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* ==============================
+   QUOTE SECTION
+   ============================== */
+
+.home .quote {
+  background: #0d1b47;
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  font-style: italic;
+  font-size: 1rem;
+}
+
+.home .quote cite {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: bold;
+}
+
+/* ==============================
+   COMMUNITY SECTION
+   ============================== */
+
+.home .community {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 20px;
+  flex-wrap: wrap-reverse;
+}
+
+.community-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.community-text h2 {
+  font-size: 2.4rem;
+  margin-bottom: 15px;
+  color: #0d1b47;
+}
+
+.community-text p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.community-text button {
+  padding: 12px 25px;
+  background: #0d1b47;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.community-image {
+  flex: 1;
+  min-width: 300px;
+  height: 300px;
+  background: url("/path/to/your-community-image.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+}
+
+/* ==============================
+   CORE VALUES
+   ============================== */
+
+.home .values {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.home .values h2 {
+  font-size: 2.2rem;
+  margin-bottom: 25px;
+  color: #111;
+}
+
+.values-grid {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.value-card {
+  background: white;
+  border-radius: 50px;
+  width: 120px;
+  height: 120px;
+  display: grid;
+  place-items: center;
+  font-size: 0.92rem;
+  color: #0d1b47;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+
+@media (max-width: 768px) {
+  .home .hero h1 {
+    font-size: 2.4rem;
+  }
+  .home .event-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .home .community {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,101 @@
+/* ===============================
+   HERO SECTION
+   =============================== */
+
+/*
+  The hero section is the first visual impression.
+  It should:
+  - Fill most of the viewport
+  - Center content vertically
+  - Feel calm, spiritual, and welcoming
+*/
+
+.hero {
+  min-height: 90vh;
+  width: 100%;
+
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    var(--hero-bg);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+}
+
+
+/* ===============================
+   HERO CONTENT
+   =============================== */
+
+.hero-content {
+  max-width: 900px;
+  padding: 0 2rem;
+  color: #ffffff;
+}
+
+/* Main headline */
+.hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+}
+
+/* Supporting text */
+.hero-content p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-bottom: 2rem;
+  color: #eaeaea;
+}
+
+/* ===============================
+   SOCIAL LINKS
+   =============================== */
+
+.hero-socials {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.hero-socials a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.hero-socials a:hover {
+  border-color: #f4c430; /* gold accent */
+  color: #f4c430;
+}
+
+/* ===============================
+   RESPONSIVE DESIGN
+   =============================== */
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 85vh;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-socials {
+    justify-content: center;
+  }
+}
