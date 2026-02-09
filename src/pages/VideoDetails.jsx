@@ -117,20 +117,163 @@
 
 
 
+
+
+
+// import { useParams } from "react-router-dom";
+// import videos from "../data/videos.json";
+// import VideoCard from "../components/videos/VideoCard";
+// import "../styles/VideoDetails.css";
+
+// function VideoDetails() {
+//   const { id } = useParams();
+
+//   // main video
+//   const video = videos.find(v => v.id === id);
+
+//   // related videos (exclude current one)
+//   const relatedVideos = videos.filter(v => v.id !== id);
+
+//   if (!video) {
+//     return <h2 className="video-not-found">Video not found</h2>;
+//   }
+
+//   return (
+//     <main className="video-details">
+//       {/* Main video */}
+//       <h1>{video.title}</h1>
+
+//       <div className="video-player">
+//         <iframe
+//           src={`https://www.youtube.com/embed/${video.youtubeId}`}
+//           title={video.title}
+//           allowFullScreen
+//         />
+//       </div>
+
+//       <p className="video-description">{video.description}</p>
+
+//       {/* Related videos */}
+//       <section className="related-videos">
+//         <h2>Related Videos</h2>
+
+//         <div className="videos-grid">
+//           {relatedVideos.map(v => (
+//             <VideoCard key={v.id} video={v} />
+//           ))}
+//         </div>
+//       </section>
+//     </main>
+//   );
+// }
+
+// export default VideoDetails;
+
+
+
+
+
+
+
+// import { useEffect, useState } from "react";
+// import { useParams } from "react-router-dom";
+// import { fetchChannelVideos } from "../services/youtube";
+// import VideoCard from "../components/videos/VideoCard";
+// import "../styles/VideoDetails.css";
+
+// function VideoDetails() {
+//   const { id } = useParams();
+//   const [videos, setVideos] = useState([]);
+//   const [loading, setLoading] = useState(true);
+
+//   useEffect(() => {
+//     fetchChannelVideos(9).then(data => {
+//       setVideos(data);
+//       setLoading(false);
+//     });
+//   }, []);
+
+//   if (loading) return <p>Loading...</p>;
+
+//   const video = videos.find(v => v.youtubeId === id);
+//   const relatedVideos = videos.filter(v => v.youtubeId !== id);
+
+//   if (!video) return <h2>Video not found</h2>;
+
+//   return (
+//     <main className="video-details">
+//       <h1>{video.title}</h1>
+
+//       <div className="video-player">
+//         <iframe
+//           src={`https://www.youtube.com/embed/${video.youtubeId}`}
+//           title={video.title}
+//           allowFullScreen
+//         />
+//       </div>
+
+//       <p className="video-description">{video.description}</p>
+
+//       <section className="related-videos">
+//         <h2>Related Videos</h2>
+//         <div className="videos-grid">
+//           {relatedVideos.map(v => (
+//             <VideoCard key={v.id} video={v} />
+//           ))}
+//         </div>
+//       </section>
+//     </main>
+//   );
+// }
+
+// export default VideoDetails;
+
+
+
+
+
+
+
+
+
+
+
+
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import videos from "../data/videos.json";
+import { fetchChannelVideos } from "../services/youtube";
 import VideoCard from "../components/videos/VideoCard";
 import "../styles/VideoDetails.css";
 
 function VideoDetails() {
   const { id } = useParams();
+  const [videos, setVideos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function loadVideos() {
+      const result = await fetchChannelVideos(9);
+
+      if (result.status === "error") {
+        setError(result.message);
+      }
+
+      setVideos(result.data);
+      setLoading(false);
+    }
+
+    loadVideos();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+
   const video = videos.find(v => v.id === id);
+  const relatedVideos = videos.filter(v => v.id !== id);
 
   if (!video) {
     return <h2>Video not found</h2>;
   }
-
-  const relatedVideos = videos.filter(v => v.id !== id);
 
   return (
     <main className="video-details">
@@ -138,19 +281,20 @@ function VideoDetails() {
 
       <div className="video-player">
         <iframe
-          src={`https://www.youtube.com/embed/${video.youtubeId}`}
+          src={`https://www.youtube.com/embed/${video.id}`}
           title={video.title}
-          frameBorder="0"
           allowFullScreen
         />
       </div>
 
+      {error && (
+        <p className="warning-message">{error}</p>
+      )}
+
       <p className="video-description">{video.description}</p>
 
-      {/* 🔥 NEW SECTION */}
       <section className="related-videos">
-        <h2>More Videos</h2>
-
+        <h2>Related Videos</h2>
         <div className="videos-grid">
           {relatedVideos.map(v => (
             <VideoCard key={v.id} video={v} />
@@ -162,3 +306,69 @@ function VideoDetails() {
 }
 
 export default VideoDetails;
+
+
+
+
+
+
+
+
+// import { useEffect, useState } from "react";
+// import { useParams } from "react-router-dom";
+// import { fetchChannelVideos } from "../services/youtube";
+// import VideoCard from "../components/videos/VideoCard";
+
+// function VideoDetails() {
+//   const { id } = useParams();
+//   const [video, setVideo] = useState(null);
+//   const [related, setRelated] = useState([]);
+//   const [error, setError] = useState(null);
+
+//   useEffect(() => {
+//     async function load() {
+//       const result = await fetchChannelVideos({ maxResults: 12 });
+
+//       if (result.status === "error") {
+//         setError(result.message);
+//         return;
+//       }
+
+//       const current = result.data.find(v => v.id === id);
+//       const others = result.data.filter(v => v.id !== id);
+
+//       setVideo(current);
+//       setRelated(others);
+//     }
+
+//     load();
+//   }, [id]);
+
+//   if (!video) return <p>Loading...</p>;
+
+//   return (
+//     <main className="video-details">
+//       <h1>{video.title}</h1>
+
+//       <iframe
+//         src={`https://www.youtube.com/embed/${video.id}`}
+//         title={video.title}
+//         allowFullScreen
+//       />
+
+//       <p>{video.description}</p>
+
+//       <h2>Related Videos</h2>
+
+//       {error && <p className="warning">{error}</p>}
+
+//       <div className="videos-grid">
+//         {related.map(v => (
+//           <VideoCard key={v.id} video={v} />
+//         ))}
+//       </div>
+//     </main>
+//   );
+// }
+
+// export default VideoDetails;
