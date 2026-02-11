@@ -1,15 +1,13 @@
 /* ===============================
-   VALUES SECTION (SPIRITUAL STYLE)
+   VALUES SECTION WITH VIDEO
    =============================== */
 
 .values {
+  position: relative;
+  min-height: 100vh;
   padding: 7rem 2rem;
-  background: linear-gradient(
-    to bottom,
-    #fdfbf7,
-    #f6f2ea
-  );
 
+  overflow: hidden;
   text-align: center;
 
   opacity: 0;
@@ -22,75 +20,123 @@
   transform: translateY(0);
 }
 
+/* ===============================
+   BACKGROUND VIDEO
+   =============================== */
+
+.values-bg-video {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  z-index: 0;
+}
+
+/* ===============================
+   OVERLAY
+   =============================== */
+
+.values-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.75)
+  );
+
+  z-index: 1;
+}
+
+/* ===============================
+   CONTENT
+   =============================== */
+
+.values-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
 /* Section title */
-.values h2 {
+.values-content h2 {
   font-size: clamp(2.1rem, 4vw, 2.8rem);
   margin-bottom: 4rem;
-  color: #2c2c2c;
+
+  color: #f5f5f5;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.values-content p {
+  font-size: clamp(2.1rem, 4vw, 2.8rem);
+  margin-bottom: 4rem;
+
+  color: #f5f5f5;
   font-weight: 600;
   letter-spacing: 0.5px;
 }
 
 /* ===============================
-   GRID
+   TEXT COLUMN STYLE
    =============================== */
 
-.values-grid {
-  max-width: 1000px;
+.values-text-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+
+  max-width: 700px;
   margin: 0 auto;
-
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 3rem;
 }
 
-/* ===============================
-   VALUE ITEM (NOT A CARD)
-   =============================== */
-
-.value-card {
-  position: relative;
-
-  padding: 3rem 1.5rem;
-  font-size: 1.1rem;
+.values-text-column p {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  color: #f5f5f5;
   font-weight: 500;
-  color: #3a3a3a;
+  letter-spacing: 0.6px;
 
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 30px;
-
-  box-shadow:
-    0 15px 35px rgba(0, 0, 0, 0.05);
-
-  transition:
-    transform 0.5s ease,
-    box-shadow 0.5s ease;
+  position: relative;
+  padding-bottom: 0.8rem;
 }
 
-/* Gold divider (spiritual accent) */
-.value-card::before {
+/* gold underline effect */
+.values-text-column p::after {
   content: "";
   position: absolute;
-  top: 18px;
   left: 50%;
+  bottom: 0;
   transform: translateX(-50%);
-
-  width: 40px;
-  height: 3px;
-  background: linear-gradient(
-    to right,
-    #d4af37,
-    #f3d57a
-  );
-
-  border-radius: 3px;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(to right, #d4af37, #f3d57a);
+  border-radius: 2px;
 }
 
-/* Gentle hover — not aggressive */
-.value-card:hover {
-  transform: translateY(-6px);
-  box-shadow:
-    0 25px 50px rgba(0, 0, 0, 0.08);
+
+.values-text-column {
+  display: grid;
+
+  /* 3 items per row (you can change to 2 or 4) */
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* paragraph styling */
+.values-text-column p {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  color: #f5f5f5;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin: 0;
 }
 
 /* ===============================

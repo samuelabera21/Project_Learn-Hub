@@ -7,6 +7,11 @@ import KidaseTypes from "./pages/KidaseTypes";
 import KidaseTypeDetails from "./pages/KidaseTypeDetails";
 import KidaseSlideDetail from "./pages/KidaseSlideDetail";
 import KidaseLanguages from "./pages/KidaseLanguages";
+import ScrollToTop from "./components/ScrollToTop";
+import ScrollUpButton from "./components/ScrollUpButton";
+
+
+
 
 
 
@@ -16,14 +21,17 @@ import KidaseLanguages from "./pages/KidaseLanguages";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import History from "./pages/History";
 import NotFound from "./pages/NotFound";
 import Videos from "./pages/Videos";
 import Teachings from "./pages/Teachings";
-import Schedule from "./pages/Schedule";
+
 
 function App() {
   return (
     <BrowserRouter>
+     <ScrollToTop />
+     <ScrollUpButton />
       <Routes>
 
         {/* Main layout route */}
@@ -44,7 +52,7 @@ function App() {
 
 
           <Route path="/videos/:id" element={<VideoDetails />} />
-          <Route path="/schedule" element={<Schedule />} />
+          <Route path="/History" element={<History />} />
           <Route path="/teachings/:id" element={<TeachingDetails />} />
 
 

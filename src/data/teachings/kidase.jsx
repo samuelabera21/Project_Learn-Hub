@@ -109,20 +109,20 @@ const kidase = {
       types: [
         {
           id: "zewetr",
-          title: "ዘወትር ቅዳሴ",
+          title: "ስርአተ ቅዳሴ",
           image: "/kidase/zewetr/zewetr.jpg",
           slides: [
         {
       id: 1,
-      image: "/kidase/zewetr/slides/01.jpg",
-      audio: "/kidase/zewetr/audio/01.mp3",
-      caption: "መጀመሪያ ቅዳሴ"
+      image: "/kidase/zewetr/slides/emne.jpg",
+      audio: "/kidase/zewetr/audio/emne.mp3",
+      caption: "እምነ በሐ"
        },
       {
       id: 2,
-      image: "/kidase/zewetr/slides/02.jpeg",
-      audio: "/kidase/zewetr/audio/02.mp3",
-      caption: "ሁለተኛ ቅዳሴ"
+      image: "/kidase/zewetr/slides/kulu.png",
+      audio: "/kidase/zewetr/audio/kulu.mp3",
+      caption: "ኩሉ ዘገብራ"
       },
       {
       id: 3,

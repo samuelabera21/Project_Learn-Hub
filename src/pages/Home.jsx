@@ -19,8 +19,8 @@ function Home() {
   return (
     <main>
       <Hero />
-      <Events />
       <Quote />
+      <Events />
       <Community />
       <Values />
     </main>

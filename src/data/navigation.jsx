@@ -4,7 +4,7 @@ export const navLinks = [
   { label: "Home", path: "/" },
   { label: "Videos", path: "/videos" },
   { label: "Teachings", path: "/teachings" },
-  { label: "Schedule", path: "/schedule" },
+  { label: "History", path: "/History" },
   { label: "About", path: "/about" },
   { label: "Contact", path: "/contact" },
 ];

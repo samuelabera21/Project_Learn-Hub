@@ -25,6 +25,8 @@ function Teachings() {
 
         <div className="teaching-links">
           <Link to="/teachings/kidase">ቅዳሴ (Kidase)</Link>
+          {/* <Link to="/teachings/kidase">ቅዳሴ (Kidase)</Link> */}
+
           <Link to="/teachings/wereb">ወረብ (Wereb)</Link>
         </div>
       </div>

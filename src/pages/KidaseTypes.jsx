@@ -67,17 +67,74 @@
 
 
 
+// import { useParams, Link } from "react-router-dom";
+// import kidase from "../data/teachings/kidase";
+// import "../styles/KidaseTypes.css";
+
+// function KidaseTypes() {
+//   const { lang } = useParams();
+//   const languageData = kidase.languages[lang];
+
+//   if (!languageData) {
+//     return <p>Language not found</p>;
+//   }
+
+//   return (
+//     <div className="kidase-page">
+//       {/* background video */}
+//       <video className="bg-video" autoPlay muted loop playsInline>
+//         <source src="/Teaching/teaching.mp4" type="video/mp4" />
+//       </video>
+
+//       <div className="overlay" />
+
+//       <div className="kidase-content">
+//         <h1>{languageData.title} ቅዳሴ</h1>
+//         <p>የቅዳሴ አይነቶችን ይምረጡ</p>
+
+//         <div className="kidase-types">
+//           {languageData.types.map((type) => (
+//             <Link
+//               key={type.id}
+//               to={`/teachings/kidase/${lang}/${type.id}`}
+//               className="kidase-card"
+//             >
+//               <img src={type.image} alt={type.title} />
+//               <h3>{type.title}</h3>
+//             </Link>
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default KidaseTypes;
+
+
 import { useParams, Link } from "react-router-dom";
+import { useState } from "react";
 import kidase from "../data/teachings/kidase";
 import "../styles/KidaseTypes.css";
 
+const ITEMS_PER_PAGE = 4; // adjust later if you want
+
 function KidaseTypes() {
   const { lang } = useParams();
-  const languageData = kidase.languages[lang];
+  const [page, setPage] = useState(1);
 
-  if (!languageData) {
-    return <p>Language not found</p>;
-  }
+  const languageData = kidase.languages[lang];
+  if (!languageData) return <p>Language not found</p>;
+
+  const totalPages = Math.ceil(
+    languageData.types.length / ITEMS_PER_PAGE
+  );
+
+  const start = (page - 1) * ITEMS_PER_PAGE;
+  const visibleTypes = languageData.types.slice(
+    start,
+    start + ITEMS_PER_PAGE
+  );
 
   return (
     <div className="kidase-page">
@@ -92,8 +149,9 @@ function KidaseTypes() {
         <h1>{languageData.title} ቅዳሴ</h1>
         <p>የቅዳሴ አይነቶችን ይምረጡ</p>
 
+        {/* GRID */}
         <div className="kidase-types">
-          {languageData.types.map((type) => (
+          {visibleTypes.map((type) => (
             <Link
               key={type.id}
               to={`/teachings/kidase/${lang}/${type.id}`}
@@ -104,6 +162,29 @@ function KidaseTypes() {
             </Link>
           ))}
         </div>
+
+        {/* PAGINATION */}
+        {totalPages > 1 && (
+          <div className="kidase-pagination">
+            <button
+              disabled={page === 1}
+              onClick={() => setPage(p => p - 1)}
+            >
+              ◀ Previous
+            </button>
+
+            <span>
+              Page {page} of {totalPages}
+            </span>
+
+            <button
+              disabled={page === totalPages}
+              onClick={() => setPage(p => p + 1)}
+            >
+              Next ▶
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -16,13 +16,12 @@ function Hero() {
     <section className="hero"    style={{ "--hero-bg": `url(${heroImage})` }}>
       <div className="hero-content">
         <h1>
-          Building Bridges of <br />
-          Faith, Hope, and Love
+          አናታቺን  <br />
+          የኢትዮጵያ ኦርቶዶክስ  ተዋህዶ በተክርስቲያን
         </h1>
 
         <p>
-          Welcome to the Orthodox Church website.
-          A place of worship, teaching, and community.
+         የቤተክርስቲያንን ትምህርት አዚህ ይማሩ  ያገልግሉ
         </p>
 
         <div className="hero-socials">

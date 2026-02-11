@@ -1,0 +1,156 @@
+/* ===============================
+   COMMUNITY BASE
+   =============================== */
+
+.history-community {
+  padding: 6rem 2rem;
+  background: #fafafa;
+  text-align: center;
+}
+
+.history-community h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.community-intro {
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  font-size: 1.05rem;
+  color: #555;
+}
+
+/* ===============================
+   CONTINENTS
+   =============================== */
+
+.continent-grid {
+  max-width: 1100px;
+  margin: 0 auto 6rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.continent-card {
+  padding: 2.2rem;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* ===============================
+   COUNTRIES
+   =============================== */
+
+.countries-section h3 {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+.country-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+.country-card {
+  background: white;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease;
+}
+
+.country-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Media placeholder */
+.country-media {
+  height: 180px;
+  background: #ddd;
+}
+
+/* Info */
+.country-info {
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.country-info h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.country-info p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.country-info span {
+  font-size: 0.85rem;
+  color: #8a6d3b;
+}
+
+.country-media {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  background: #000;
+}
+
+.country-media img,
+.country-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Rank badge */
+.country-rank {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #8a6d3b;
+  margin-bottom: 0.3rem;
+}
+
+/* Church name */
+.church-name {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.8rem;
+}
+
+/* Stats list */
+.country-stats {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.8rem;
+}
+
+.country-stats li {
+  font-size: 0.85rem;
+  color: #444;
+}
+
+/* Description */
+.country-description {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.5;
+}
+.country-card.highlight {
+  border: 2px solid #8a6d3b;
+  box-shadow: 0 18px 45px rgba(138, 109, 59, 0.35);
+}
+h3{
+  text-align: center;
+  margin-top: 80px;
+}
+

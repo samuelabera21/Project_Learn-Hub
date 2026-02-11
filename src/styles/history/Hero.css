@@ -1,0 +1,61 @@
+/* ===============================
+   HISTORY HERO
+   =============================== */
+
+.history-hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* Video */
+.history-hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Overlay */
+.history-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.85)
+  );
+  z-index: 1;
+}
+
+/* Content */
+.history-hero-content {
+  position: relative;
+  z-index: 2;
+
+  min-height: 100vh;
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.history-hero-content h1 {
+  font-size: clamp(2.6rem, 5vw, 3.6rem);
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.history-hero-content p {
+  font-size: 1.15rem;
+  opacity: 0.9;
+  line-height: 1.7;
+}

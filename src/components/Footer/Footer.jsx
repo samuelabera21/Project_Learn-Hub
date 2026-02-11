@@ -22,6 +22,7 @@ function Footer() {
             <li><NavLink to="/about">About</NavLink></li>
             <li><NavLink to="/videos">Videos</NavLink></li>
             <li><NavLink to="/contact">Contact</NavLink></li>
+             <li><NavLink to="/teachings">Teachings</NavLink></li>
           </ul>
         </div>
 
